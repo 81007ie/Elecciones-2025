@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elecciones Municipales Modelo 2025 🗳️</title>
+    <link rel="icon" href="logo.png" type="image/png"> 
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="colors.css"> 
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css">
+    
+    <style>
+        /* -------------------------------------- */
+        /* 1. DEFINICIÓN DE VARIABLES CSS */
+        /* -------------------------------------- */
+        :root {
+            --celeste: #6EC1E4;
+            --azul-oscuro: #1e3c72;
+            --azul-borde: #00AEEF;
+            --rojo: #E53935;
+            --blanco: #FFFFFF;
+            --negro: #000000;
+            --gris: #555;
+            --gris-claro: #f0f2f5; 
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 40px;
+            --font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        /* -------------------------------------- */
+        /* 2. ESTILOS GENERALES Y LAYOUT */
+        /* -------------------------------------- */
+        body { 
+            font-family: var(--font-family); 
+            background: linear-gradient(135deg, #e0f2f7 0%, #d8e5ed 100%); 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0; 
+            color: var(--gris);
+            padding: var(--spacing-md); 
+            box-sizing: border-box;
+        }
+        
+        .container { 
+            max-width: 1000px; 
+            width: 95%; 
+            background: var(--blanco); 
+            padding: var(--spacing-xl) var(--spacing-lg); 
+            border-radius: 25px; 
+            box-shadow: 0 15px 60px rgba(0,0,0,0.1); 
+            overflow: hidden; 
+            box-sizing: border-box;
+        }
+        
+        .logo {
+            display: block;
+            width: 120px; 
+            height: auto;
+            margin: 0 auto var(--spacing-xl) auto; 
+            filter: drop-shadow(0 4px 4px rgba(0,0,0,0.1)); 
+        }
+
+        h1 { 
+            text-align: center; 
+            color: var(--azul-oscuro); 
+            margin-bottom: var(--spacing-xl); 
+            font-size: 2.6em; 
+            font-weight: 700;
+            letter-spacing: -1px; 
+            border-bottom: 4px solid var(--celeste); 
+            padding-bottom: var(--spacing-md); 
+            line-height: 1.2;
+        }
+        
+        /* Select de Grado */
+        label[for="grado"] { 
+            display: block; 
+            font-weight: 600; 
+            margin-bottom: var(--spacing-sm); 
+            font-size: 1.1em; 
+            color: var(--azul-oscuro); 
+        }
+        #grado { 
+            width: 100%; 
+            padding: 15px; 
+            margin-bottom: var(--spacing-xl); 
+            border: 1px solid #cce; 
+            border-radius: 12px; 
+            background-color: var(--gris-claro); 
+            box-sizing: border-box; 
+            font-size: 1.05em; 
+            appearance: none; 
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2300AEEF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.2-5.4H18.2c-7.6%200-13.6%206-13.6%2013.6s6%2013.6%2013.6%2013.6h255.6c4.6%200%208.8-1.4%2012-4.4a17.6%2017.6%200%200%200%204.4-12z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 18px center; 
+            background-size: 12px auto; 
+            color: var(--gris);
+        }
+        #grado:focus {
+            border-color: var(--azul-borde);
+            outline: none;
+            box-shadow: 0 0 0 5px rgba(0, 174, 239, 0.25); 
+        }
+
+        /* -------------------------------------- */
+        /* 3. ESTILOS DEL CARRUSEL (SWIPER) */
+        /* -------------------------------------- */
+        h3 {
+            color: var(--azul-oscuro); 
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl); 
+            text-align: center;
+            font-size: 1.5em; 
+            font-weight: 700;
+            text-transform: uppercase; 
+            letter-spacing: 0.8px;
+        }
+        .swiper-container { 
+            width: 40%; 
+            height: 500px; 
+            padding-bottom: var(--spacing-md); 
+        }
+        .swiper-slide { 
+            background: var(--blanco);
+            border: none; 
+            border-radius: 18px; 
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); 
+            cursor: pointer;
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); 
+        }
+        .swiper-slide:hover {
+            box-shadow: 0 18px 50px rgba(0, 174, 239, 0.28); 
+            transform: translateY(-10px); 
+        }
+
+        .list-image-container {
+            width: 100%;
+            height: 500px; 
+            overflow: hidden;
+            position: relative;
+            background-color: #f5f8fa; 
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+        .list-image-container img { 
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            display: block;
+            border-radius: 18px 18px 0 0; 
+        }
+        
+        /* Información de la lista (texto debajo de la imagen) */
+        .list-info {
+            text-align: center;
+            padding: var(--spacing-md) 15px var(--spacing-lg) 15px;
+            width: 50%;
+            box-sizing: border-box;
+            background-color: #fdfdfd; 
+            border-top: 1px solid #eceff1; 
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: var(--spacing-xs); 
+        }
+        .list-info p.list-title { 
+            margin: 0; 
+            font-weight: 500; 
+            color: var(--azul-oscuro); 
+            font-size: 1.1em; 
+            line-height: 1.3;
+        }
+        .list-info small.list-slogan { 
+            display: block;
+            color: var(--gris);
+            font-size: 0.8em; 
+            font-weight: 400;
+        }
+        
+        .swiper-slide.selected { 
+            border: 5px solid var(--azul-borde) !important; 
+            box-shadow: 0 0 35px rgba(0, 174, 239, 0.8); 
+            transform: scale(1.07) translateY(-12px); 
+            z-index: 10; 
+        }
+        
+        /* ESTILO DE LA PAGINACIÓN */
+        .swiper-button-next, .swiper-button-prev { display: none !important; }
+        
+        .swiper-pagination {
+            position: relative !important; 
+            top: auto !important;
+            bottom: auto !important;
+            margin-top: var(--spacing-md); 
+            margin-bottom: var(--spacing-xl); 
+            text-align: center;
+        }
+        
+        .swiper-pagination-bullet {
+            background: #ccc !important;
+            opacity: 0.7 !important;
+            width: 10px !important;
+            height: 10px !important;
+            margin: 0 5px !important;
+            transition: all 0.2s;
+        }
+        .swiper-pagination-bullet-active { 
+            background: var(--azul-borde) !important;
+            opacity: 1 !important;
+            width: 12px !important;
+            height: 12px !important;
+        }
+        /* -------------------------------------- */
+        /* 4. ESTILOS DE BOTÓN Y ESTADO */
+        /* -------------------------------------- */
+        button { 
+            padding: 18px 30px; 
+            background-color: var(--azul-oscuro); 
+            color: var(--blanco); 
+            border-radius: 12px; 
+            width: 100%; 
+            font-size: 1.4em; 
+            font-weight: 700; 
+            box-shadow: 0 8px 0 var(--celeste); 
+            margin-top: 0; 
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .container { padding: var(--spacing-lg) var(--spacing-md); }
+            h1 { font-size: 2em; }
+            .list-image-container { height: 280px; } 
+            .list-info p.list-title { font-size: 1em; }
+            .list-info small.list-slogan { font-size: 0.75em; }
+            button { font-size: 1.1em; padding: 15px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Modelo Trujillo Institución Educativa" class="logo"> 
+        
+        <h1>Elecciones Municipales 2025</h1>
+        
+        <form id="formulario-voto">
+            <label for="grado">Selecciona tu Grado:</label>
+            <select id="grado" name="grado" required>
+                <option value="">-- Selecciona un Grado --</option>
+                <option value="Primero 1°">Primero 1°</option>
+                <option value="Segundo 2°">Segundo 2°</option>
+                <option value="Tercero 3°">Tercero 3°</option>
+                <option value="Cuarto 4°">Cuarto 4°</option>
+                <option value="Quinto 5°">Quinto 5°</option>
+                <option value="Sexto 6°">Sexto 6°</option>
+            </select>
+
+            <h3>ELIGE TU LISTA:</h3>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide" data-voto="Lista 1: Juventud Modelo Unida">
+                        <div class="list-image-container">
+                            <img src="lista1.jpg" alt="Candidata Lista 1">
+                        </div>
+                        <div class="list-info">
+                            <p class="list-title">Lista 1</p>
+                            <small class="list-slogan">Juventud Modelo Unida</small>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-voto="Lista 2: Lideres en Acción">
+                        <div class="list-image-container">
+                            <img src="lista2.jpg" alt="Candidata Lista 2">
+                        </div>
+                        <div class="list-info">
+                            <p class="list-title">Lista 2</p>
+                            <small class="list-slogan">Líderes en Acción</small>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide" data-voto="Lista 3: Alianza e Identidad Modelista">
+                        <div class="list-image-container">
+                            <img src="lista3.jpg" alt="Candidata Lista 3">
+                        </div>
+                        <div class="list-info">
+                            <p class="list-title">Lista 3</p>
+                            <small class="list-slogan">Alianza e Identidad Modelista</small>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-voto="Lista 4: Todas las sangres una sola voz">
+                        <div class="list-image-container">
+                            <img src="lista4.jpg" alt="Candidata Lista 4">
+                        </div>
+                        <div class="list-info">
+                            <p class="list-title">Lista 4</p>
+                            <small class="list-slogan">Todas las Sangres, Una Sola Voz</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="swiper-pagination"></div> 
+            
+            <input type="hidden" id="voto-seleccionado" name="voto" required>
+
+            <button type="submit" id="boton-votar">CONFIRMAR MI VOTO</button>
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
