@@ -1,4 +1,3 @@
-// ⚠️ 1. REEMPLAZA ESTA URL con la de tu ÚLTIMA implementación /exec
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxmYyS1FCVNV5Dv9LGXKt_glMvROk9UkygjxAXBs2bSHv8DzdG7wkm7P-N6ewslptI_Lg/exec'; 
 
 const formulario = document.getElementById('formulario-voto');
